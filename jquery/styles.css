@@ -1,0 +1,14 @@
+.big {
+    font-size: 10rem;
+    color: red;
+    font-family: cursive;
+}
+
+.margin {
+    margin: 50px;
+}
+
+.dark{
+    background-color: #222;
+    color: #e6e6e6;
+}

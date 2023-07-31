@@ -1,0 +1,22 @@
+<%- include('header'); -%>
+
+    <div class="box" id="heading">
+            <h1> <%= ofday %></h1>
+    </div>
+
+
+    <div class="box">
+           <% for (var i = 0; i < newithem.length; i++) { %>
+            <div class="ithem">
+                <input type="checkbox">
+                <p><%= newithem[i] %></p>
+            </div> 
+        <%   }    %>
+            
+    <form class="ithem" action="/" method="post">
+        <input type="text" name="first" placeholder="new-Ithme" autocomplete="off">
+        <button type="submit" name="button" value=<%= ofday %>>+</button>
+    </form>
+    </div>
+
+<%- include('footer'); -%>
