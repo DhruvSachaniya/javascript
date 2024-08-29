@@ -1,7 +1,9 @@
+import { PdfForm } from "./componets/form";
+
 function App() {
   return (
     <div>
-      <h1>heello world</h1>
+      <PdfForm />
     </div>
   );
 }

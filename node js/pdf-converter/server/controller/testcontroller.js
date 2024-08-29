@@ -2,6 +2,14 @@ import pool from "../config/dbconfig.js";
 
 async function TestFunction(req, res) {
   try {
+    // console.log(req.headers.authorization);
+    // var token = jwt.sign(
+    //   {
+    //     data: "foobar",
+    //   },
+    //   "secret",
+    //   { expiresIn: "1h" }
+    // );
     res.status(200).json({ message: "this is from test!" });
   } catch (err) {
     console.log(err);
@@ -10,12 +18,15 @@ async function TestFunction(req, res) {
 
 async function SetupDatabase(req, res) {
   try {
+    //email, otp, expire time, created time
     const query = `
-      CREATE TABLE FormData (
-        FormId int NOT NULL,
-        pdfname varchar(45),
-        UserName varchar(20)
-      );
+      CREATE TABLE OTP (
+        OtpId SERIAL PRIMARY KEY,
+        otp INT NOT NULL,
+        Email VARCHAR(155),
+        createAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        expireAt TIMESTAMP NOT NULL
+    );
     `;
 
     pool.query(query, (err, result) => {
